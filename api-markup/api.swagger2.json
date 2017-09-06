@@ -295,7 +295,13 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/enrollments_json"
-            }
+            },
+			"examples":{
+				"jsonObject":{
+        			"summary": "A sample enrollment",
+        			"$ref": "./examples/Enrollments_json_example.json"
+        		}
+        	}	
           }
         ],
         "responses": {
