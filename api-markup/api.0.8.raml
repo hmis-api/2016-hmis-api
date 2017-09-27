@@ -1130,4 +1130,38 @@ resourceTypes:
               ]
             }
             }
-                      
+/hmisTypes:
+  description: Get all available hmis types
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+             example: !include examples/get_all_hmis_type_names.json
+             schema: !include schemas/get_all_hmis_type_names.json
+  /{name}/values:
+    description:  get all values of hmis type
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/get_all_hmis_type_value_of_hmis_type.json
+              schema: !include schemas/get_all_hmis_type_value_of_hmis_type.json
+
+/questions:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/get_all_survey_questions.json
+            schema: !include schemas/get_all_survey_questions.json
+/questions/{hudQuestionId}:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/get_survey_question_by_hudid.json
+            schema: !include schemas/get_survey_question_by_hudid.json    
