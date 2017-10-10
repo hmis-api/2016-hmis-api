@@ -4,11 +4,11 @@
   "type": "object",
   "properties": {
     "entryrhy": {
-      "id": "entryrhy",
+      "id": "exitrhy",
       "type": "object",
       "properties": {
         "entryrhyId": {
-          "id": "entryrhyId",
+          "id": "exitrhyId",
           "type": "string"
         },
         "sexualOrientation": {
@@ -181,53 +181,11 @@
         }
       },
       "required": [
-        "entryrhyId",
-        "sexualOrientation",
-        "formerlyWardChildWelfrForestCare",
-        "yearsChildWelfrForestCare",
-        "monthsChildWelfrForestCare",
-        "formerlyWardOfJuvenileJustice",
-        "yearsJuvenileJustice",
-        "houseHoldDynamics",
-        "sexualOrientatiionGenderIdentityYouth",
-        "sexualOrientatiionGenderIdentityFamilyMbr",
-        "housingIssuesYouth",
-        "housingIssuesFamilyMbr",
-        "schoolEducationIssuesYouth",
-        "schoolEducationIssuesFamilyMbr",
-        "unemployementYouth",
-        "unemployementFamilyMbr",
-        "mentalHealthIssuesYouth",
-        "mentalHealthIssuesFamilyMbr",
-        "healthIssuesYouth",
-        "healthIssuesFamilyMbr",
-        "physicalDisabilityYouth",
-        "physicalDisabilityFamilyMbr",
-        "mentalDisabilityYouth",
-        "mentalDisabilityFamilyMbr",
-        "abuseAndNeglectYouth",
-        "abuseAndNeglectFamilyMbr",
-        "alcoholDrugAbuseYouth",
-        "alcoholDrugAbuseFamilyMbr",
-        "insufficientIncomeToSupportYouth",
-        "activeMilitaryParent",
-        "incarceratedParent",
-        "incarceratedParentStatus",
-        "referralSource",
-        "countOutReachReferralApproaches",
-        "exchangeForSex",
-        "exchangeForSexPastThreeMonths",
-        "countOfExchangeForSex",
-        "askedOfForcedToExchangeForSex",
-        "askedOfForcedToExchangeForSexPastThreeMonths",
-        "workPlaceViolenceThreat",
-        "workPlacePromiseDifference",
-        "coercedToContinueWork",
-        "laborExploitPastThreeMonths"
+        "exitrhyId"
       ]
     }
   },
   "required": [
-    "entryrhy"
+    "exitrhy"
   ]
 }
