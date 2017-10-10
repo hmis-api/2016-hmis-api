@@ -25,8 +25,8 @@ types:
   date_of_engagement_id : !include types/date_of_engagement_id.json
   date_of_engagement_id_only : !include types/date_of_engagement_id_only.json
   date_of_engagements_ids : !include types/date_of_engagements_ids.json
-  disabilities : !include types/disabilities.json
-  disabilities_id_only : !include types/disabilities_id_only.json
+  disability : !include types/disability.json
+  disability_id_only : !include types/disability_id_only.json
   disabilities_ids : !include types/disabilities_ids.json
   disability_id : !include types/disability_id.json
   domestic_violence : !include types/domestic_violence.json
@@ -241,743 +241,481 @@ resourceTypes:
                 schema_id_example: !include ./examples/date_of_engagement_id_example.json
                 schema_example: !include ./examples/date_of_engagement_example.json
         /disabilities:
-          type: {
-            collection: {
-              id_schema_json: id_disabilities_json,
-              schema_json:  disabilities_json,
-              schema_ids_json: disabilities_ids_json,
-              schema_json_example: !include examples/Disabilities_json_example.json,
-              schema_ids_json_example: !include examples/Disabilities_ids_json_example.json,
-              id_schema_json_example: !include examples/id_disabilities_json_example.json
-            }
-          }
-          /{disabilitiesid}:
-            uriParameters:
-              disabilitiesid:
-                displayName: Disabilities Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+          type:
+            collection:
+              schema: disability
+              schema_ids: disabilities_ids
+              schema_example: !include ./examples/disability_example.json
+              schema_ids_example: !include ./examples/disabilities_ids_example.json
+              schema_id_example: !include ./examples/disability_id_example.json
+          /{disabilityid}:
             type:
               member:
-                schema_json:  disabilities_json
-                schema_id_json: disabilities_id_json
-                schema_json_example: !include examples/Disabilities_json_example.json
-                schema_id_json_example: !include examples/Disabilities_id_json_example.json
+                schema: disability
+                schema_id: disability_id
+                schema_example: !include ./examples/disability_example.json
+                schema_id_example: !include ./examples/disability_id_example.json
         /domesticviolences:
-          type: {
-            collection: {
-              id_schema_json: id_domesticviolences_json,
-              schema_json:  domesticviolence_json,
-              schema_ids_json: domesticviolence_ids_json,
-              schema_json_example: !include examples/DomesticViolence_json_example.json,
-              schema_ids_json_example: !include examples/DomesticViolence_ids_json_example.json,
-              id_schema_json_example: !include examples/id_domesticviolence_json_example.json
-            }
-          }
+          type:
+            collection:
+              schema: domestic_violence
+              schema_ids: domestic_violences_ids
+              schema_example: !include ./examples/domestic_violence_example.json
+              schema_ids_example: !include ./examples/domestic_violences_ids_example.json
+              schema_id_example: !include ./examples/domestic_violence_id_example.json
           /{domesticviolenceid}:
-            uriParameters:
-              domesticviolenceid:
-                displayName: DomesticViolence Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
             type:
               member:
-                schema_json:  domesticviolence_json
-                schema_id_json: domesticviolence_id_json
-                schema_json_example: !include examples/DomesticViolence_json_example.json
-                schema_id_json_example: !include examples/DomesticViolence_id_json_example.json
+                schema: domestic_violence
+                schema_id: domestic_violence_id
+                schema_example: !include ./examples/domestic_violence_example.json
+                schema_id_example: !include ./examples/domestic_violence_id_example.json
         /employments:
-          type: {
-            collection: {
-              id_schema_json: id_employments_json,
-              schema_json:  employments_json,
-              schema_ids_json: employments_ids_json,
-              schema_json_example: !include examples/Employments_json_example.json,
-              schema_ids_json_example: !include examples/Employments_ids_json_example.json,
-              id_schema_json_example: !include examples/id_employments_json_example.json
-            }
-          }
-          /{employmentsid}:
-            uriParameters:
-              employmentsid:
-                displayName: Employments Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+          type:
+            collection:
+              schema: employment
+              schema_ids: employments_ids
+              schema_example: !include ./examples/employment_example.json
+              schema_ids_example: !include ./examples/employments_ids_example.json
+              schema_id_example: !include ./examples/employment_id_example.json
+          /{employmentid}:
             type:
               member:
-                schema_json:  employments_json
-                schema_id_json: employment_id_json
-                schema_id_json_example: !include examples/Employment_id_json_example.json
-                schema_json_example: !include examples/Employments_json_example.json
+                schema: employment
+                schema_id: employment_id
+                schema_id_example: !include ./examples/employment_id_example.json
+                schema_example: !include ./examples/employment_example.json
         /exits:
-          type: {
-            collection: {
-              id_schema_json: id_exits_json,
-              schema_json:  exit_json,
-              schema_ids_json: exit_ids_json,
-              schema_json_example: !include examples/Exit_json_example.json,
-              schema_ids_json_example: !include examples/Exit_ids_json_example.json,
-              id_schema_json_example: !include examples/id_exits_json_example.json
-            }
-          }
-          /{exitsid}:
-            uriParameters:
-              exitsid:
-                displayName: Exits Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  exit_json
-                schema_id_json: exit_id_json
-                schema_id_json_example: !include examples/Exit_id_json_example.json
-                schema_json_example: !include examples/Exit_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitsid}/exithousingassesments:
-                  type: {
-                    collection: {
-                    id_schema_json: id_exithousingassesment_json,
-                    schema_json:  exithosingassessments_json,
-                    schema_ids_json: exithosingassessments_ids_json,
-                    schema_json_example: !include examples/ExitHousingAssesments_json_example.json,
-                    schema_ids_json_example: !include examples/ExitHousingAssesments_ids_json_example.json,
-                    id_schema_json_example: !include examples/id_exithousingassesment_json_example.json
-                    }
-                  }
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitsid}/exithousingassesments/{exithousingassesmentid}:
-                    uriParameters:
-                      exithousingassesmentid:
-                        displayName: ExitHousingAssesments Identifier
-                        type: string
-                        example: ADBC1111211111114111111111D1111V
-                    type:
-                      member:
-                        schema_json:  exithosingassessments_json
-                        schema_id_json: exithosingassessments_id_json
-                        schema_json_example: !include examples/ExitHousingAssesments_json_example.json
-                        schema_id_json_example: !include examples/ExitHousingAssesments_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitsid}/housingassesmentdispositions:
-        type: {
-          collection: {
-          id_schema_json: id_housingassesmentdispositions_json,
-          schema_json:  housingassesmentdispositions_json,
-          schema_ids_json: housingassesmentdispositions_ids_json,
-          schema_json_example: !include examples/HousingAssesmentDispositions_json_example.json,
-          schema_ids_json_example: !include examples/HousingAssesmentDispositions_ids_json_example.json,
-          id_schema_json_example: !include examples/id_HousingAssesmentDispositions_json_example.json
-          }
-        }
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitsid}/housingassesmentdispositions/{housingassesmentdispositionid}:
-          uriParameters:
-            housingassesmentdispositionid:
-              displayName: HousingAssesmentDisposition Identifier
-              type: string
-              example: ADBC1111211111114111111111D1111V
           type:
-            member:
-              schema_json:  housingassesmentdispositions_json
-              schema_id_json: housingassesmentdispositions_id_json
-              schema_json_example: !include examples/HousingAssesmentDispositions_json_example.json
-              schema_id_json_example: !include examples/HousingAssesmentDispositions_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/heathinsurances:
-          type: {
-            collection: {
-              id_schema_json: id_healthinsurance_json,
-              schema_json:  healthinsurance_json,
-              schema_ids_json: healthinsurances_ids_json,
-              schema_json_example: !include examples/HealthInsurance_json_example.json,
-              schema_ids_json_example: !include examples/HealthInsurances_ids_json_example.json,
-              id_schema_json_example: !include examples/id_healthinsurance_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/heathinsurances/{healthinsuranceid}:
-            uriParameters:
-              healthinsuranceid:
-                displayName: HealthInsurance Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+            collection:
+              schema: exit
+              schema_ids: exits_ids
+              schema_example: !include ./examples/exit_example.json
+              schema_ids_example: !include ./examples/exits_ids_example.json
+              schema_id_example: !include ./examples/exit_id_example.json
+          /{exitid}:
             type:
               member:
-                schema_json:  healthinsurance_json
-                schema_id_json: healthinsurance_id_json
-                schema_json_example: !include examples/HealthInsurance_json_example.json
-                schema_id_json_example: !include examples/HealthInsurance_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/healthstatuses:
-          type: {
-            collection: {
-              id_schema_json: id_healthstatus_json,
-              schema_json:  healthstatus_json,
-              schema_ids_json: healthstatus_ids_json,
-              schema_json_example: !include examples/HealthStatus_json_example.json,
-              schema_ids_json_example: !include examples/HealthStatus_ids_json_example.json,
-              id_schema_json_example: !include examples/id_healthstatus_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthstatusid}:
-            uriParameters:
-              healthstatusid:
-                displayName: HealthStatus Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  healthstatus_json
-                schema_id_json: healthstatus_id_json
-                schema_json_example: !include examples/HealthStatus_json_example.json
-                schema_id_json_example: !include examples/HealthStatus_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/incomeandsources:
-          type: {
-            collection: {
-              id_schema_json: id_incomeandsources_json,
-              schema_json:  incomeandsource_json,
-              schema_ids_json: incomeandsources_ids_json,
-              schema_json_example: !include examples/IncomeAndSource_json_example.json,
-              schema_ids_json_example: !include examples/IncomeAndSources_ids_json_example.json,
-              id_schema_json_example: !include examples/id_incomeandsource_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeandsourcesid}:
-            uriParameters:
-              incomeandsourcesid:
-                displayName: HealthStatus Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  incomeandsource_json
-                schema_id_json: incomeandsource_id_json
-                schema_json_example: !include examples/IncomeAndSource_json_example.json
-                schema_id_json_example: !include examples/IncomeAndSource_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/medicalassistences:
-          type: {
-            collection: {
-              id_schema_json: id_medicalassistances_json,
-              schema_json:  medicalassistance_json,
-              schema_ids_json: medicalassistances_ids_json,
-              schema_json_example: !include examples/MedicalAssistance_json_example.json,
-              schema_ids_json_example: !include examples/MedicalAssistances_ids_json_example.json,
-              id_schema_json_example: !include examples/id_medicalassistance_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/medicalassistences/{medicalassistancesid}:
-            uriParameters:
-              medicalassistancesid:
-                displayName: MedicalAssistances Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  medicalassistance_json
-                schema_id_json: medicalassistances_id_json
-                schema_json_example: !include examples/MedicalAssistance_json_example.json
-                schema_id_json_example: !include examples/MedicalAssistances_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/noncashbenefits:
-          type: {
-            collection: {
-              id_schema_json: id_noncashbenefits_json,
-              schema_json:  noncashbenefits_json,
-              schema_ids_json: noncashbenefits_ids_json,
-              schema_json_example: !include examples/NonCashBenefits_json_example.json,
-              schema_ids_json_example: !include examples/NonCashBenefits_ids_json_example.json,
-              id_schema_json_example: !include examples/id_noncashbenefits_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/noncashbenefits/{noncashbenefitsid}:
-            uriParameters:
-              noncashbenefitsid:
-                displayName: NonCashBenefits Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  noncashbenefits_json
-                schema_id_json: noncashbenefits_id_json
-                schema_json_example: !include examples/NonCashBenefits_json_example.json
-                schema_id_json_example: !include examples/NonCashBenefits_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/residentialmoveindates:
-          type: {
-            collection: {
-              id_schema_json: id_residentialmoveindate_json,
-              schema_json:  residentialmoveindate_json,
-              schema_ids_json: residentialmoveindate_ids_json,
-              schema_json_example: !include examples/ResidentialMoveInDate_json_example.json,
-              schema_ids_json_example: !include examples/ResidentialMoveInDate_ids_json_example.json,
-              id_schema_json_example: !include examples/id_residentialmoveindate_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindatesid}:
-            uriParameters:
-              residentialmoveindatesid:
-                displayName: ResidentialMoveInDate Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  residentialmoveindate_json
-                schema_id_json: residentialmoveindate_id_json
-                schema_json_example: !include examples/ResidentialMoveInDate_json_example.json
-                schema_id_json_example: !include examples/ResidentialMoveInDate_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses:
-          type: {
-            collection: {
-              id_schema_json: id_pathstatus_json,
-              schema_json:  pathstatus_json,
-              schema_ids_json: pathstatus_ids_json,
-              schema_json_example: !include examples/PathStatus_json_example.json,
-              schema_ids_json_example: !include examples/PathStatus_ids_json_example.json,
-              id_schema_json_example: !include examples/id_pathstatus_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/pathstatuses/{pathstatusid}:
-            uriParameters:
-              pathstatusid:
-                displayName: PathStatus Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  pathstatus_json
-                schema_id_json: pathstatus_id_json
-                schema_json_example: !include examples/PathStatus_json_example.json
-                schema_id_json_example: !include examples/PathStatus_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/entryrhsps:
-          type: {
-            collection: {
-              id_schema_json: id_entryrhsp_json,
-              schema_json:  entryrhsp_json,
-              schema_ids_json: entryrhsp_ids_json,
-              schema_json_example: !include examples/Entryrhsp_json_example.json,
-              schema_ids_json_example: !include examples/Entryrhsp_ids_json_example.json,
-              id_schema_json_example: !include examples/id_entryrhsp_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/entryrhsps/{entryrhspid}:
-            uriParameters:
-              entryrhspid:
-                displayName: Entryrhsp Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  entryrhsp_json
-                schema_id_json: entryrhsp_id_json
-                schema_json_example: !include examples/Entryrhsp_json_example.json
-                schema_id_json_example: !include examples/Entryrhsp_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/entryrhys:
-          type: {
-            collection: {
-              id_schema_json: id_entryrhy_json,
-              schema_json:  entryrhy_json,
-              schema_ids_json: entryrhy_ids_json,
-              schema_json_example: !include examples/Entryrhy_json_example.json,
-              schema_ids_json_example: !include examples/Entryrhy_ids_json_example.json,
-              id_schema_json_example: !include examples/id_entryrhy_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/entryrhys/{entryrhyid}:
-            uriParameters:
-              entryrhyid:
-                displayName: Entryrhy Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
-            type:
-              member:
-                schema_json:  entryrhy_json
-                schema_id_json: entryrhy_id_json
-                schema_json_example: !include examples/Entryrhy_json_example.json
-                schema_id_json_example: !include examples/Entryrhy_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/entryssvfs:
-          type: {
-            collection: {
-              id_schema_json: id_entryssvf_json,
-              schema_json:  entryssvf_json,
-              schema_ids_json: entryssvf_ids_json,
-              schema_json_example: !include examples/Entryssvf_json_example.json,
-              schema_ids_json_example: !include examples/Entryssvf_ids_json_example.json,
-              id_schema_json_example: !include examples/id_entryssvf_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/entryssvfs/{entryssvfid}:
-          uriParameters:
-              entryssvfid:
-                displayName: Entryssvf Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+                schema: exit
+                schema_id: exit_id
+                schema_id_example: !include ./examples/exit_id_example.json
+                schema_example: !include ./examples/exit_example.json
+            /exithousingassessments:
+              type:
+                collection:
+                  schema: exit_housing_assessment
+                  schema_ids: exit_housing_assessments_ids
+                  schema_example: !include ./examples/exit_housing_assessment_example.json
+                  schema_ids_example: !include ./examples/exit_housing_assessments_ids_example.json
+                  schema_id_example: !include ./examples/exit_housing_assessment_id_example.json
+              /{exithousingassessmentid}:
+                type:
+                  member:
+                    schema: exit_housing_assessment
+                    schema_id: exit_housing_assessment_id
+                    schema_example: !include ./examples/exit_housing_assessment_example.json
+                    schema_id_example: !include ./examples/exit_housing_assessment_id_example.json
+            /exitpaths:
+              type:
+                collection:
+                  schema: exit_path
+                  schema_ids: exit_paths_ids
+                  schema_example: !include ./examples/exit_path_example.json
+                  schema_ids_example: !include ./examples/exit_paths_ids_example.json
+                  schema_id_example: !include ./examples/exit_path_id_example.json
+              /{exitpathid}:
+                type:
+                  member:
+                    schema: exit_path
+                    schema_id: exit_path_id
+                    schema_example: !include ./examples/exit_path_example.json
+                    schema_id_example: !include ./examples/exit_path_id_example.json
+            /exitrhys:
+              type:
+                collection:
+                  schema: exit_rhy
+                  schema_ids: exit_rhys_ids
+                  schema_example: !include ./examples/exit_rhy_example.json
+                  schema_ids_example: !include ./examples/exit_rhys_ids_example.json
+                  schema_id_example: !include ./examples/exit_rhy_id_example.json
+              /{exitrhyid}:
+                type:
+                  member:
+                    schema: exit_rhy
+                    schema_id: exit_rhy_id
+                    schema_example: !include ./examples/exit_rhy_example.json
+                    schema_id_example: !include ./examples/exit_rhy_id_example.json
+            /housingassessmentdispositions:
+              type:
+                collection:
+                  schema: housing_assessment_disposition
+                  schema_ids: housing_assessment_dispositions_ids
+                  schema_example: !include ./examples/housing_assessment_disposition_example.json
+                  schema_ids_example: !include ./examples/housing_assessment_dispositions_ids_example.json
+                  schema_id_example: !include ./examples/housing_assessment_disposition_id_example.json
+              /{housingassessmentdispositionid}:
+                type:
+                  member:
+                    schema: housing_assessment_disposition
+                    schema_id: housing_assessment_disposition_id
+                    schema_example: !include ./examples/housing_assessment_disposition_example.json
+                    schema_id_example: !include ./examples/housing_assessment_disposition_id_example.json
+        /healthinsurances:
           type:
-            member:
-              schema_json:  entryssvf_json
-              schema_id_json: entryssvf_id_json
-              schema_json_example: !include examples/Entryssvf_json_example.json
-              schema_id_json_example: !include examples/Entryssvf_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths:
-        type: {
-            collection: {
-              id_schema_json: id_exitpath_json,
-              schema_json:  exitpath_json,
-              schema_ids_json: exitpath_ids_json,
-              }:
-          uriParameters:
-              exitrhyid:
-                displayName: Exitrhy Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+            collection:
+              schema: health_insurance
+              schema_ids: health_insurances_ids
+              schema_example: !include ./examples/health_insurance_example.json
+              schema_ids_example: !include ./examples/health_insurances_ids_example.json
+              schema_id_example: !include ./examples/health_status_id_example.json
+          /{healthinsuranceid}:
+            type:
+              member:
+                schema: health_insurance
+                schema_id: health_insurance_id
+                schema_example: !include ./examples/health_insurance_example.json
+                schema_id_example: !include ./examples/health_insurance_id_example.json
+        /healthstatuses:
           type:
-            member:
-              schema_json:  exitrhy_json
-              schema_id_json: exitrhy_id_json
-              schema_json_example: !include examples/Exitrhy_json_example.json
-              schema_id_json_example: !include examples/Exitrhy_id_json_example.json
-/clientsschema_json_example: !include examples/ExitPath_json_example.json,
-              schema_ids_json_example: !include examples/ExitPath_ids_json_example.json,
-              id_schema_json_example: !include examples/id_exitpath_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitpaths/{exitpathid}:
-          uriParameters:
-              exitpathid:
-                displayName: ExitPath Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+            collection:
+              schema: health_status
+              schema_ids: health_statuses_ids
+              schema_example: !include ./examples/health_status_example.json
+              schema_ids_example: !include ./examples/health_statuses_ids_example.json
+              schema_id_example: !include ./examples/health_status_id_example.json
+          /{healthstatusid}:
+            type:
+              member:
+                schema: health_status
+                schema_id: health_status_id
+                schema_example: !include ./examples/health_status_example.json
+                schema_id_example: !include ./examples/health_status_id_example.json
+        /incomeandsources:
           type:
-            member:
-              schema_json:  exitpath_json
-              schema_id_json: exitpath_id_json
-              schema_json_example: !include examples/ExitPath_json_example.json
-              schema_id_json_example: !include examples/ExitPath_id_json_example.json
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys:
-        type: {
-            collection: {
-              id_schema_json: id_exitrhy_json,
-              schema_json:  exitrhy_json,
-              schema_ids_json: exitrhy_ids_json,
-              schema_json_example: !include examples/Exitrhy_json_example.json,
-              schema_ids_json_example: !include examples/Exitrhy_ids_json_example.json,
-              id_schema_json_example: !include examples/id_exitrhy_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitrhys/{exitrhyid/{clientid}/enrollments/{enrollmentid}/servicefareferrals:
-        type: {
-            collection: {
-              id_schema_json: id_servicefareferral_json,
-              schema_json:  servicefareferral_json,
-              schema_ids_json:  servicefareferrals_ids_json,
-              schema_json_example: !include examples/ServiceFaReferral_json_example.json,
-              schema_ids_json_example: !include examples/ServiceFaReferrals_ids_json_example.json,
-              id_schema_json_example: !include examples/id_servicefareferral_json_example.json
-            }
-          }
-/clients/{clientid}/enrollments/{enrollmentid}/servicefareferrals/{servicefareferralid}:
-          uriParameters:
-              servicefareferralid:
-                displayName: ServiceFaReferral Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+            collection:
+              schema: income_and_source
+              schema_ids: income_and_sources_ids
+              schema_example: !include ./examples/income_and_source_example.json
+              schema_ids_example: !include ./examples/income_and_sources_ids_example.json
+              schema_id_example: !include ./examples/income_and_source_id_example.json
+          /{incomeandsourceid}:
+            type:
+              member:
+                schema: income_and_source
+                schema_id: income_and_source_id
+                schema_example: !include ./examples/income_and_source_example.json
+                schema_id_example: !include ./examples/income_and_source_id_example.json
+        /medicalassistances:
           type:
-            member:
-              schema_json:  servicefareferral_json
-              schema_id_json:  servicefareferral_id_json
-              schema_json_example: !include examples/ServiceFaReferral_json_example.json
-              schema_id_json_example: !include examples/ServiceFaReferral_id_json_example.json
-/clients/{clientid}/veteraninfos:
-        type: {
-            collection: {
-              id_schema_json: id_veteraninfo_json,
-              schema_json:  veteraninfo_json,
-              schema_ids_json:  veteraninfo_ids_json,
-              schema_json_example: !include examples/VeteranInfo_json_example.json,
-              schema_ids_json_example: !include examples/VeteranInfo_ids_json_example.json,
-              id_schema_json_example: !include examples/id_veteraninfo_json_example.json
-            }
-          }
-/clients/{clientid}/veteraninfos/{veteraninfoid}:
-          uriParameters:
-              veteraninfoid:
-                displayName: VeteranInfo Identifier
-                type: string
-                example: ADBC1111211111114111111111D1111V
+            collection:
+              schema: medical_assistance
+              schema_ids: medical_assistances_ids
+              schema_example: !include ./examples/medical_assistance_example.json
+              schema_ids_example: !include ./examples/medical_assistances_ids_example.json
+              schema_id_example: !include ./examples/medical_assistance_id_example.json
+          /{medicalassistanceid}:
+            type:
+              member:
+                schema: medical_assistance
+                schema_id: medical_assistance_id
+                schema_example: !include ./examples/medical_assistance_example.json
+                schema_id_example: !include ./examples/medical_assistance_id_example.json
+        /noncashbenefits:
           type:
-            member:
-              schema_json:  veteraninfo_json
-              schema_id_json:  veteraninfo_id_json
-              schema_json_example: !include examples/VeteranInfo_json_example.json
-              schema_id_json_example: !include examples/VeteranInfo_id_json_example.json
+            collection:
+              schema: non_cash_benefits
+              schema_ids: non_cash_benefitses_ids
+              schema_example: !include ./examples/non_cash_benefits_example.json
+              schema_ids_example: !include ./examples/non_cash_benefitses_ids_example.json
+              schema_id_example: !include ./examples/non_cash_benefits_id_example.json
+          /{noncashbenefitid}:
+            type:
+              member:
+                schema: non_cash_benefits
+                schema_id: non_cash_benefits_id
+                schema_example: !include ./examples/non_cash_benefits_example.json
+                schema_id_example: !include ./examples/non_cash_benefits_id_example.json
+        /residentialmoveindates:
+          type:
+            collection:
+              schema: residential_move_in_date
+              schema_ids: residential_move_in_dates_ids
+              schema_example: !include ./examples/residential_move_in_date_example.json
+              schema_ids_example: !include ./examples/residential_move_in_dates_ids_example.json
+              schema_id_example: !include ./examples/residential_move_in_date_id_example.json
+          /{residentialmoveindateid}:
+            type:
+              member:
+                schema: residential_move_in_date
+                schema_id: residential_move_in_date_id
+                schema_example: !include ./examples/residential_move_in_date_example.json
+                schema_id_example: !include ./examples/residential_move_in_date_id_example.json
+        /pathstatuses:
+          type:
+            collection:
+              schema: path_status
+              schema_ids: path_statuses_ids
+              schema_example: !include ./examples/path_status_example.json
+              schema_ids_example: !include ./examples/path_statuses_ids_example.json
+              schema_id_example: !include ./examples/path_status_id_example.json
+          /{pathstatusid}:
+            type:
+              member:
+                schema: path_status
+                schema_id: path_status_id
+                schema_example: !include ./examples/path_status_example.json
+                schema_id_example: !include ./examples/path_status_id_example.json
+        /entryrhsps:
+           type:
+             collection:
+               schema: entry_rhsp
+               schema_ids: entry_rhsps_ids
+               schema_example: !include ./examples/entry_rhsp_example.json
+               schema_ids_example: !include ./examples/entry_rhsps_ids_example.json
+               schema_id_example: !include ./examples/entry_rhsp_id_example.json
+           /{entryrhspid}:
+             type:
+               member:
+                 schema: entry_rhsp
+                 schema_id: entry_rhsp_id
+                 schema_example: !include ./examples/entry_rhsp_example.json
+                 schema_id_example: !include ./examples/entry_rhsp_id_example.json
+        /entryrhys:
+          type:
+            collection:
+              schema: entry_rhy
+              schema_ids: entry_rhys_ids
+              schema_example: !include ./examples/entry_rhy_example.json
+              schema_ids_example: !include ./examples/entry_rhys_ids_example.json
+              schema_id_example: !include ./examples/entry_rhy_id_example.json
+          /{entryrhyid}:
+            type:
+              member:
+                schema: entry_rhy
+                schema_id: entry_rhy_id
+                schema_example: !include ./examples/entry_rhy_example.json
+                schema_id_example: !include ./examples/entry_rhy_id_example.json
+        /entryssvfs:
+          type:
+            collection:
+              schema: entry_ssvf
+              schema_ids: entry_ssvfs_ids
+              schema_example: !include ./examples/entry_ssvf_example.json
+              schema_ids_example: !include ./examples/entry_ssvfs_ids_example.json
+              schema_id_example: !include ./examples/entry_ssvf_id_example.json
+          /{entryssvfid}:
+            type:
+              member:
+                schema: entry_ssvf
+                schema_id: entry_ssvf_id
+                schema_example: !include ./examples/entry_ssvf_example.json
+                schema_id_example: !include ./examples/entry_ssvf_id_example.json
+        /servicefareferrals:
+          type:
+            collection:
+              schema: service_fa_referral
+              schema_ids: service_fa_referrals_ids
+              schema_example: !include ./examples/service_fa_referral_example.json
+              schema_ids_example: !include ./examples/service_fa_referrals_ids_example.json
+              schema_id_example: !include ./examples/service_fa_referral_id_example.json
+          /{servicefareferralid}:
+            type:
+              member:
+                schema: service_fa_referral
+                schema_id: service_fa_referral_id
+                schema_example: !include ./examples/service_fa_referral_example.json
+                schema_id_example: !include ./examples/service_fa_referral_id_example.json
+    /veteraninfos:
+      type:
+        collection:
+          schema: veteran_info
+          schema_ids: veteran_infos_ids
+          schema_example: !include ./examples/veteran_info_example.json
+          schema_ids_example: !include ./examples/veteran_infos_ids_example.json
+          schema_id_example: !include ./examples/veteran_info_id_example.json
+      /{veteraninfoid}:
+        type:
+          member:
+            schema: veteran_info
+            schema_id: veteran_info_id
+            schema_example: !include ./examples/veteran_info_example.json
+            schema_id_example: !include ./examples/veteran_info_id_example.json
 /projects:
-  type: {
-    collection: {
-        id_schema_json: id_projects_json,
-        schema_json:  project_json,
-        schema_ids_json: projects_ids_json,
-        schema_json_example: !include examples/Project_json_example.json,
-        schema_ids_json_example: !include examples/Projects_ids_json_example.json,
-        id_schema_json_example: !include examples/id_project_json_example.json
-    }
-  }
-  /{projectsid}:
-    uriParameters:
-      projectsid:
-        displayName: Project Identifier
-        type: string
-        example: ADBC1111211111114111111111D1111V
+  type:
+    collection:
+      schema: project
+      schema_ids: projects_ids
+      schema_example: !include ./examples/project_example.json
+      schema_ids_example: !include ./examples/projects_ids_example.json
+      schema_id_example: !include ./examples/project_id_example.json
+  /{projectid}:
     type:
       member:
-        schema_json:  project_json
-        schema_id_json: projects_id_json
-        schema_id_json_example: !include examples/Projects_id_json_example.json
-        schema_json_example: !include examples/Project_json_example.json
+        schema: project
+        schema_id: project_id
+        schema_id_example: !include ./examples/project_id_example.json
+        schema_example: !include ./examples/project_example.json
     /projectcocs:
-      type: {
-        collection: {
-          id_schema_json: id_projectcoc_json,
-          schema_json:  projectcoc_json,
-          schema_ids_json: projectcoc_ids_json,
-          schema_json_example: !include examples/ProjectCoc_json_example.json,
-          schema_ids_json_example: !include examples/ProjectCoc_ids_json_example.json,
-          id_schema_json_example: !include examples/id_ProjectCoc_json_example.json
-        }
-      }
+      type:
+        collection:
+          schema: project_coc
+          schema_ids: project_cocs_ids
+          schema_example: !include ./examples/project_coc_example.json
+          schema_ids_example: !include ./examples/project_cocs_ids_example.json
+          schema_id_example: !include ./examples/project_coc_id_example.json
       /{projectcocid}:
-        uriParameters:
-          projectcocid:
-            displayName: ProjectCoc Identifier
-            type: string
-            example: ADBC1111211111114111111111D1111V
         type:
           member:
-            schema_json:  projectcoc_json
-            schema_id_json: projectcoc_id_json
-            schema_json_example: !include examples/ProjectCoc_json_example.json
-            schema_id_json_example: !include examples/ProjectCoc_id_json_example.json
+            schema: project_coc
+            schema_id: project_coc_id
+            schema_example: !include ./examples/project_coc_example.json
+            schema_id_example: !include ./examples/project_coc_id_example.json
     /inventories:
-      type: {
-        collection: {
-          id_schema_json: id_inventories_json,
-          schema_json:  inventories_json,
-          schema_ids_json: inventories_ids_json,
-          schema_json_example: !include examples/Inventories_json_example.json,
-          schema_ids_json_example: !include examples/Inventories_ids_json_example.json,
-          id_schema_json_example: !include examples/id_inventories_json_example.json
-        }
-      }
-      /{inventoriesid}:
-        uriParameters:
-          inventoriesid:
-            displayName: Inventories Identifier
-            type: string
-            example: ADBC1111211111114111111111D1111V
+      type:
+        collection:
+          schema: inventory
+          schema_ids: inventories_ids
+          schema_example: !include ./examples/inventory_example.json
+          schema_ids_example: !include ./examples/inventories_ids_example.json
+          schema_id_example: !include ./examples/inventory_id_example.json
+      /{inventoryid}:
         type:
           member:
-            schema_json:  inventories_json
-            schema_id_json: inventories_id_json
-            schema_id_json_example: !include examples/Inventories_id_json_example.json
-            schema_json_example: !include examples/Inventories_json_example.json
+            schema: inventory
+            schema_id: inventory_id
+            schema_id_example: !include ./examples/inventory_id_example.json
+            schema_example: !include ./examples/inventory_example.json
     /sites:
-      type: {
-        collection: {
-          id_schema_json: id_sites_json,
-          schema_json:  sites_json,
-          schema_ids_json: sites_ids_json,
-          schema_json_example: !include examples/Sites_json_example.json,
-          schema_ids_json_example: !include examples/Sites_ids_json_example.json,
-          id_schema_json_example: !include examples/id_sites_json_example.json
-        }
-      }
-      /{sitesid}:
-        uriParameters:
-          sitesid:
-            displayName: Sites Identifier
-            type: string
-            example: ADBC1111211111114111111111D1111V
+      type:
+        collection:
+          schema: site
+          schema_ids: sites_ids
+          schema_example: !include ./examples/site_example.json
+          schema_ids_example: !include ./examples/sites_ids_example.json
+          schema_id_example: !include ./examples/site_id_example.json
+      /{siteid}:
         type:
           member:
-            schema_json:  sites_json
-            schema_id_json: sites_id_json
-            schema_json_example: !include examples/Sites_json_example.json
-            schema_id_json_example: !include examples/Sites_id_json_example.json
+            schema: site
+            schema_id: site_id
+            schema_example: !include ./examples/site_example.json
+            schema_id_example: !include ./examples/site_id_example.json
     /funders:
-      type: {
-        collection: {
-        id_schema_json: id_funders_json,
-        schema_json:  funders_json,
-        schema_ids_json: funders_ids_json,
-        schema_json_example: !include examples/Funders_json_example.json,
-        schema_ids_json_example: !include examples/Funders_ids_json_example.json,
-        id_schema_json_example: !include examples/id_funders_json_example.json
-        }
-      }
-      /{fundersid}:
-        uriParameters:
-          fundersid:
-            displayName: Funders Identifier
-            type: string
-            example: ADBC1111211111114111111111D1111V
+      type:
+        collection:
+          schema: funder
+          schema_ids: funders_ids
+          schema_example: !include ./examples/funder_example.json
+          schema_ids_example: !include ./examples/funders_ids_example.json
+          schema_id_example: !include ./examples/funder_id_example.json
+      /{funderid}:
         type:
           member:
-            schema_json:  funders_json
-            schema_id_json: funder_id_json
-            schema_json_example: !include examples/Funders_json_example.json
-            schema_id_json_example: !include examples/Funder_id_json_example.json
+            schema: funder
+            schema_id: funder_id
+            schema_example: !include ./examples/funder_example.json
+            schema_id_example: !include ./examples/funder_id_example.json
     /affiliations:
-      type: {
-        collection: {
-        id_schema_json: id_affiliation_json,
-        schema_json:  affiliations_json,
-        schema_ids_json: affiliations_ids_json,
-        schema_json_example: !include examples/Affiliations_json_example.json,
-        schema_ids_json_example: !include examples/Affiliation_ids_json_example.json,
-        id_schema_json_example: !include examples/id_affiliation_json_example.json
-        }
-      }
+      type:
+        collection:
+          schema: affiliation
+          schema_ids: affiliations_ids
+          schema_example: !include ./examples/affiliation_example.json
+          schema_ids_example: !include ./examples/affiliations_ids_example.json
+          schema_id_example: !include ./examples/affiliation_id_example.json
       /{affiliationid}:
-        uriParameters:
-          affiliationid:
-            displayName: Affiliation Identifier
-            type: string
-            example: ADBC1111211111114111111111D1111V
         type:
           member:
-            schema_json:  affiliations_json
-            schema_id_json: affiliation_id_json
-            schema_json_example: !include examples/Affiliations_json_example.json
-            schema_id_json_example: !include examples/Affiliation_id_json_example.json
+            schema: affiliation
+            schema_id: affiliation_id
+            schema_example: !include ./examples/affiliation_example.json
+            schema_id_example: !include ./examples/affiliation_id_example.json
 /organizations:
-  type: {
-    collection: {
-        id_schema_json: id_organization_json,
-        schema_json:  organization_json,
-        schema_ids_json: organization_ids_json,
-        schema_json_example: !include examples/organization_json_example.json,
-        schema_ids_json_example: !include examples/organization_ids_json_example.json,
-        id_schema_json_example: !include examples/id_organization_json_example.json
-    }
-  }
+  type:
+    collection:
+      schema: organization
+      schema_ids: organizations_ids
+      schema_example: !include ./examples/organization_example.json
+      schema_ids_example: !include ./examples/organizations_ids_example.json
+      schema_id_example: !include ./examples/organization_id_example.json
   /{organizationid}:
-    uriParameters:
-      organizationid:
-        displayName: organization Identifier
-        type: string
-        example: ADBC1111211111114111111111D1111V
     type:
       member:
-        schema_json:  organization_json
-        schema_id_json: organization_id_json
-        schema_id_json_example: !include examples/organization_id_json_example.json
-        schema_json_example: !include examples/organization_json_example.json
+        schema: organization
+        schema_id: organization_id
+        schema_id_example: !include ./examples/organization_id_example.json
+        schema_example: !include ./examples/organization_example.json
+/search:
+  description: |
+    The Search API is optimized to find the specific entity you're looking for (e.g., a client, enrollments, etc.).It's designed to  find the one result you're looking for (or maybe the few results you're looking for). Currently hmislynk supporting search on 'clients' entity only. Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs.  HMISLynk Search API provides up to 50 results for each search. However, the search results can be limited by the client. Note: Current supporting URI is /search/clients .
 
-/search/{searchentity}:
-  get:
-    description: |
-          The Search API is optimized to find the specific entity you're looking for (e.g., a client, enrollments, etc.).It's designed to  find the one result you're looking for (or maybe the few results you're looking for). Currently hmislynk supporting search on 'clients' entity only. Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs.  HMISLynk Search API provides up to 50 results for each searh. However, the search results can be limited by the client.
-            Note: Current supporting URI  is /search/clients
-
-    queryParameters:
-      q:
-        description: |
-             The search keywords, as well as any qualifiers. Currently supported search fields are first name,middle name,last name,dob,source system id and ssn. For search on "date of birth" field the format MM-dd-YYYY should be used for the search keyword.
-      sort:
-        description: The sort field. Default- results are sorted by "created date".
-        type: string
-        example: created date
-      order:
-        description: The sort order if sort parameter is provided. One of asc or desc. Default- desc.
-        type: string
-        example: desc
-        default: desc
-      startIndex:
-        description: The start Index from where the search results should be returned. Default - 0
-        type: integer
-        example: 0
-        default: 0
-      maxItems:
-        description: the number or Items that should be included in the results . Default - 50
-        type: integer
-        example: 50
-        default: 50
-      exclude:
-       description: |
-             Excludes flieds from the search.Currently it suppoted value is "ssi" (to exclude         source system id) only.
-    responses:
-      200:
-        description: |
-          example: |
-            {
-            "searchResults": {
-              "pagination": {
-                "total":"2"
-                "from": "0",
-                "maximum": "50",
-                "returned":"2"
-              },
-              "items": [
-                {
-                  "clientId": "65e3df62-dd22-4d07-83ef-6858a6322839",
-                  "firstName": "Eric",
-                  "middleName": "Eric",
-                  "lastName": "Eric",
-                  "nameSuffix": "NS ",
-                  "nameDataQuality": "1",
-                  "ssn": "ssn ",
-                  "ssnDataQuality": "1",
-                  "dob": "1459498034983",
-                  "dobDataQuality": "1",
-                  "race": "1",
-                  "ethnicity": "1",
-                  "gender": "1",
-                  "otherGender": "Test",
-                  "veteranStatus": "8",
-                  "link":"/hmis-clientapi/rest/clients/65e3df62-dd22-4d07-83ef-6858a6322839"
-                },
-                {
-                  "clientId": "cf98b9b2-9a77-4133-99a3-b60f05a12ad1",
-                  "firstName": "Eric",
-                  "middleName": "Eric",
-                  "lastName": "Eric",
-                  "nameSuffix": "NS ",
-                  "nameDataQuality": "1",
-                  "ssn": "ssn ",
-                  "ssnDataQuality": "1",
-                  "dob": "1459498034983",
-                  "dobDataQuality": "1",
-                  "race": "1",
-                  "ethnicity": "1",
-                  "gender": "1",
-                  "otherGender": "Test",
-                  "veteranStatus": "8",
-                  "link":"/hmis-clientapi/rest/v2014/clients/cf98b9b2-9a77-4133-99a3-b60f05a12ad1"
-                }
-              ]
-            }
-            }
+  /{searchentity}:
+    get:
+      responses:
+        '200':
+          body:
+            application/json:
+              example: !include examples/search_results.json
+      queryParameters:
+        q:
+          description: |
+            The search keywords, as well as any qualifiers. Currently supported search fields are first name,middle name,last name,dob,source system id and ssn. For search on "date of birth" field the format MM-dd-YYYY should be used for the search keyword.
+        sort:
+          description: The sort field. Default- results are sorted by "created date".
+          example: created date
+          type: string
+        order:
+          description: The sort order if sort parameter is provided. One of asc or desc. Default- desc.
+          example: desc
+          default: desc
+          type: string
+        startIndex:
+          description: The start Index from where the search results should be returned. Default - 0
+          example: 0
+          default: 0
+          type: integer
+        maxItems:
+          description: the number or Items that should be included in the results . Default - 50
+          example: 50
+          default: 50
+          type: integer
+        exclude:
+          description: |
+            Excludes flieds from the search.Currently it suppoted value is "ssi" (to exclude         source system id) only.
+    uriParameters:
+      searchentity: {}
 /hmisTypes:
-  description: Get all available hmis types
+  description: Get all available HMIS picklist values (types)
   get:
     responses:
       200:
         body:
           application/json:
              example: !include examples/get_all_hmis_type_names.json
-             schema: !include schemas/get_all_hmis_type_names.json
+             schema: !include types/get_all_hmis_type_names.json
   /{name}/values:
-    description:  get all values of hmis type
+    description:  get all values of HMIS type
     get:
       responses:
         200:
           body:
             application/json:
               example: !include examples/get_all_hmis_type_value_of_hmis_type.json
-              schema: !include schemas/get_all_hmis_type_value_of_hmis_type.json
-
+              schema: !include types/get_all_hmis_type_value_of_hmis_type.json
 /questions:
+  description: Get all available HMIS questions
   get:
     responses:
       200:
         body:
           application/json:
             example: !include examples/get_all_survey_questions.json
-            schema: !include schemas/get_all_survey_questions.json
-/questions/{hudQuestionId}:
-  get:
-    responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/get_survey_question_by_hudid.json
-            schema: !include schemas/get_survey_question_by_hudid.json
+            type: !include types/get_all_survey_questions.json
+  /{hudquestionid}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include examples/get_survey_question_by_hud_id.json
+              type: !include types/get_survey_question_by_hud_id.json
