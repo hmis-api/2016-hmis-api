@@ -93,23 +93,7 @@
               }
             },
             "required": [
-              "clientId",
-              "firstName",
-              "middleName",
-              "lastName",
-              "nameSuffix",
-              "nameDataQuality",
-              "ssn",
-              "ssnDataQuality",
-              "dob",
-              "dobDataQuality",
-              "race",
-              "ethnicity",
-              "gender",
-              "otherGender",
-              "veteranStatus",
-              "phoneNumber",
-              "emailAddress"
+              "clientId"
             ]
           }
         }
