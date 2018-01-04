@@ -1,6 +1,6 @@
 #%RAML 1.0
 title: 2016 HMIS
-version: 1.0.0
+version: 1.1.0
 baseUri: https://www.hmislynk.com/hmis-clientapi-v2016/rest/v2016/
 mediaType: application/json
 securedBy: [oauth_2_0]
@@ -703,7 +703,7 @@ resourceTypes:
               example: !include examples/get_all_hmis_type_value_of_hmis_type.json
               schema: get_all_hmis_type_value_of_hmis_type
 /questions:
-  description: Get all available HMIS questions.
+  description: Get all available HMIS questions. Maximum number items (questions) that can be returned in a response is 200.
   get:
     responses:
       200:
