@@ -681,6 +681,7 @@ paths:
                       yearshomeless: 0
                       entryfromstreetessh: 1
                       dateCreated: 05-13-2016
+                      chronicHomeless: 1
               schema:
                 $ref: '#/components/schemas/enrollments_ids'
         '400':
@@ -722,6 +723,7 @@ paths:
                     entryfromstreetessh: 1
                     dateCreated: 05-13-2016
                     dateUpdated: 05-13-2016
+                    chronicHomeless: 1
         '400':
           description: Bad Request – The request was invalid or cannot be served.
         '401':
@@ -764,6 +766,7 @@ paths:
                     yearshomeless: 2
                     entryfromstreetessh: 2
                     datetostreetessh: 1
+                    chronicHomeless: 1
         required: true
     parameters:
       - name: clientid
@@ -800,6 +803,7 @@ paths:
                       entryfromstreetessh: 1
                       dateCreated: 05-13-2016
                       dateUpdated: 05-13-2016
+                      chronicHomeless: 1
         '400':
           description: Bad Request – The request was invalid or cannot be served.
         '401':
@@ -861,6 +865,7 @@ paths:
                     yearshomeless: 2
                     entryfromstreetessh: 2
                     datetostreetessh: 1
+                    chronicHomeless: 1
         required: true
     delete:
       responses:
@@ -10811,6 +10816,7 @@ components:
             - yearshomeless
             - entryfromstreetessh
             - datetostreetessh
+            - chronicHomeless
           type: object
           properties:
             continuouslyhomelessoneyear:
@@ -10850,6 +10856,8 @@ components:
             entryfromstreetessh:
               type: integer
             datetostreetessh:
+              type: integer
+            chronicHomeless:
               type: integer
     enrollment_coc:
       required:
@@ -10972,6 +10980,7 @@ components:
             - entryfromstreetessh
             - dateCreated
             - dateUpdated
+            - chronicHomeless
           type: object
           properties:
             enrollmentId:
@@ -11004,6 +11013,8 @@ components:
               type: string
             dateUpdated:
               type: string
+            chronicHomeless:
+              type: integer
     enrollment_id_only:
       required:
         - enrollment
@@ -11067,6 +11078,7 @@ components:
                   - yearshomeless
                   - entryfromstreetessh
                   - dateCreated
+                  - chronicHomeless
                 type: object
                 properties:
                   enrollmentId:
@@ -11097,6 +11109,8 @@ components:
                     type: integer
                   dateCreated:
                     type: string
+                  chronicHomeless:
+                    type: integer
     entry_rhsp:
       required:
         - entryrhsp
