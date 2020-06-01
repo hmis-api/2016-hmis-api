@@ -65,11 +65,15 @@ paths:
                                   "clientId",
                                   "dedupClientId",
                                   "firstName",
+                                  "firstNameHashStatus",
                                   "middleName",
+                                  "middleNameHashStatus",
                                   "lastName",
+                                  "lastNameHashStatus",
                                   "nameSuffix",
                                   "nameDataQuality",
                                   "ssn",
+                                  "ssnHashStatus",
                                   "ssnDataQuality",
                                   "dob",
                                   "dobDataQuality",
@@ -110,7 +114,16 @@ paths:
                                   "firstName": {
                                     "type": "string",
                                   },
+                                  "firstNameHashStatus": {
+                                      "type": "string",
+                                  },
+                                  "middleNameHashStatus": {
+                                    "type": "string",
+                                  },
                                   "middleName": {
+                                    "type": "string",
+                                  },
+                                  "lastNameHashStatus": {
                                     "type": "string",
                                   },
                                   "lastName": {
@@ -124,6 +137,9 @@ paths:
                                   },
                                   "ssn": {
                                     "type": "string",
+                                  },
+                                  "ssnHashStatus": {
+                                      "type": "string",
                                   },
                                   "ssnDataQuality": {
                                     "type": "integer"
@@ -173,13 +189,17 @@ paths:
                             href: "/clients/e7f87b3b-9282-4031-af3f-34bebc2c6cbf4/history"
                           clientId: e7f87b3b-9282-4031-af3f-34bebc2c6cbf4
                           dedupClientId: 06ad407c-24b9-4d58-94b8-42b07f62b206
-                          firstName: 'First Name'
-                          middleName: 'Middle Name'
-                          lastName: 'LAST NAME'
-                          nameSuffix: 'NS'
-                          nameDataQuality: 1
-                          ssn: '123-xx-xxxx'
-                          ssnDataQuality: 1
+                          firstName: Taylor
+                          firstNameHashStatus: 1
+                          middleName: Robin
+                          middleNameHashStatus: 1
+                          lastName: Steve
+                          lastNameHashStatus: 1
+                          nameSuffix: 'TS                                                '
+                          nameDataQuality: 2
+                          ssn: 123-45-6789
+                          ssnHashStatus: 1
+                          ssnDataQuality: 2
                           dob: 1459517834983
                           dobDataQuality: 1
                           race: 1
@@ -214,13 +234,17 @@ paths:
                             href: "/clients/2e31aed0-eb42-484d-9b42-8395b65a9ac7/history"
                           clientId: 2e31aed0-eb42-484d-9b42-8395b65a9ac7
                           dedupClientId: 6a2ac456-844f-4d8d-837c-5175fcfbfef3
-                          firstName: 'First Name'
-                          middleName: 'Middle Name'
-                          lastName: 'LAST NAME'
-                          nameSuffix: 'NS'
-                          nameDataQuality: 1
-                          ssn: ' '
-                          ssnDataQuality: 1
+                          firstName: Taylor
+                          firstNameHashStatus: 1
+                          middleName: Robin
+                          middleNameHashStatus: 1
+                          lastName: Steve
+                          lastNameHashStatus: 1
+                          nameSuffix: 'TS                                                '
+                          nameDataQuality: 2
+                          ssn: 123-45-6789
+                          ssnHashStatus: 1
+                          ssnDataQuality: 2
                           dob: 1459517834983
                           dobDataQuality: 1
                           race: 1
@@ -313,11 +337,16 @@ paths:
                         "type": "object",
                         "required": [
                           "firstName",
+                          "firstNameHashStatus",
                           "middleName",
+                          "middleNameHashStatus",
                           "lastName",
+                          "lastNameHashStatus",
                           "nameSuffix",
                           "nameDataQuality",
                           "ssn",
+                          "ssnHashed"
+                          "ssnHashStatus",
                           "ssnDataQuality",
                           "dob",
                           "dobDataQuality",
@@ -333,7 +362,16 @@ paths:
                           "firstName": {
                             "type": "string",
                           },
+                          "firstNameHashStatus": {
+                              "type": "string",
+                          },
+                          "middleNameHashStatus": {
+                            "type": "string",
+                          },
                           "middleName": {
+                            "type": "string",
+                          },
+                          "lastNameHashStatus": {
                             "type": "string",
                           },
                           "lastName": {
@@ -347,6 +385,12 @@ paths:
                           },
                           "ssn": {
                             "type": "string",
+                          },
+                          "ssnHashed": {
+                            "type": "string"
+                          }
+                          "ssnHashStatus": {
+                              "type": "string",
                           },
                           "ssnDataQuality": {
                             "type": "integer"
@@ -384,13 +428,18 @@ paths:
                   }
                 example:
                   client:
-                    firstName: First Name
-                    middleName: Middle Name
-                    lastName: LAST NAME
-                    nameSuffix: NS
-                    nameDataQuality: 1
+                    firstName: Taylor
+                    firstNameHashStatus: 1
+                    middleName: Robin
+                    middleNameHashStatus: 1
+                    lastName: Steve
+                    lastNameHashStatus: 1
+                    nameSuffix: 'TS                                                '
+                    nameDataQuality: 2
                     ssn: 123-45-6789
-                    ssnDataQuality: 1
+                    ssnHashed: hashedSSN
+                    ssnHashStatus: 1
+                    ssnDataQuality: 2
                     dob: 1459517834983
                     dobDataQuality: 1
                     race: 1
@@ -421,11 +470,15 @@ paths:
                         "links",
                         "clientId",
                         "firstName",
+                        "firstNameHashStatus",
                         "middleName",
+                        "middleNameHashStatus",
                         "lastName",
+                        "lastNameHashStatus",
                         "nameSuffix",
                         "nameDataQuality",
                         "ssn",
+                        "ssnHashStatus",
                         "ssnDataQuality",
                         "dob",
                         "dobDataQuality",
@@ -456,14 +509,19 @@ paths:
                             }
                           }
                         },
-                        "clientId": {
-                          "type": "string",
-                          "format": "uuid",
-                        },
                         "firstName": {
                           "type": "string",
                         },
+                        "firstNameHashStatus": {
+                            "type": "string",
+                        },
+                        "middleNameHashStatus": {
+                          "type": "string",
+                        },
                         "middleName": {
+                          "type": "string",
+                        },
+                        "lastNameHashStatus": {
                           "type": "string",
                         },
                         "lastName": {
@@ -474,6 +532,9 @@ paths:
                         },
                         "nameDataQuality": {
                           "type": "integer"
+                        },
+                        "ssnHashStatus": {
+                          "type": "string",
                         },
                         "ssn": {
                           "type": "string",
@@ -518,12 +579,16 @@ paths:
                   - rel: history
                     href: "/clients/8547a63e-4659-412f-b5fa-200e03b62ae8/history"
                   clientId: 8547a63e-4659-412f-b5fa-200e03b62ae8
-                  firstName: 'First Name                                        '
-                  middleName: 'Middle Name                                       '
-                  lastName: 'LAST NAME                                         '
-                  nameSuffix: 'NS                                                '
+                  firstName: First Name
+                  firstNameHashStatus: 1
+                  middleName: Middle Name
+                  middleNameHashStatus: 1
+                  lastName: LAST NAME
+                  lastNameHashStatus: 1
+                  nameSuffix: NS
                   nameDataQuality: 1
-                  ssn: 'ssn      '
+                  ssn: 123-45-6789
+                  ssnHashStatus: 1
                   ssnDataQuality: 1
                   dob: 1459517834983
                   dobDataQuality: 1
@@ -586,11 +651,16 @@ paths:
                      "type": "object",
                      "required": [
                        "firstName",
+                       "firstNameHashStatus",
                        "middleName",
+                       "middleNameHashStatus",
                        "lastName",
+                       "lastNameHashStatus",
                        "nameSuffix",
                        "nameDataQuality",
                        "ssn",
+                       "ssnHashStatus",
+                       "sshHashed",
                        "ssnDataQuality",
                        "dob",
                        "dobDataQuality",
@@ -606,7 +676,16 @@ paths:
                        "firstName": {
                          "type": "string",
                        },
+                       "firstNameHashStatus": {
+                           "type": "string",
+                       },
+                       "middleNameHashStatus": {
+                         "type": "string",
+                       },
                        "middleName": {
+                         "type": "string",
+                       },
+                       "lastNameHashStatus": {
                          "type": "string",
                        },
                        "lastName": {
@@ -618,9 +697,15 @@ paths:
                        "nameDataQuality": {
                          "type": "integer"
                        },
+                       "ssnHashStatus": {
+                         "type": "string",
+                       },
                        "ssn": {
                          "type": "string",
                        },
+                        "sshHashed": {
+                            "type": "string"
+                      },
                        "ssnDataQuality": {
                          "type": "integer"
                        },
@@ -658,12 +743,15 @@ paths:
             example:
               client:
                 firstName: First Name
+                firstNameHashStatus: 1
                 middleName: Middle Name
+                middleNameHashStatus: 1
                 lastName: LAST NAME
+                lastNameHashStatus: 1
                 nameSuffix: NS
                 nameDataQuality: 1
                 ssn: 123-45-6789
-                ssnDataQuality: 1
+                ssnHashStatus: 1
                 dob: 1459517834983
                 dobDataQuality: 1
                 race: 1
@@ -755,11 +843,15 @@ paths:
                                   "clientId",
                                   "dedupClientId",
                                   "firstName",
+                                  "firstNameHashStatus",
                                   "middleName",
+                                  "middleNameHashStatus",
                                   "lastName",
+                                  "lastNameHashStatus",
                                   "nameSuffix",
                                   "nameDataQuality",
                                   "ssn",
+                                  "ssnHashStatus",
                                   "ssnDataQuality",
                                   "dob",
                                   "dobDataQuality",
@@ -782,7 +874,16 @@ paths:
                                   "firstName": {
                                     "type": "string",
                                   },
+                                  "firstNameHashStatus": {
+                                      "type": "string",
+                                  },
+                                  "middleNameHashStatus": {
+                                    "type": "string",
+                                  },
                                   "middleName": {
+                                    "type": "string",
+                                  },
+                                  "lastNameHashStatus": {
                                     "type": "string",
                                   },
                                   "lastName": {
@@ -793,6 +894,9 @@ paths:
                                   },
                                   "nameDataQuality": {
                                     "type": "integer"
+                                  },
+                                  "ssnHashStatus": {
+                                    "type": "string",
                                   },
                                   "ssn": {
                                     "type": "string",
@@ -842,12 +946,16 @@ paths:
                       clients:
                         - clientId: e7f87b3b-9282-4031-af3f-34bebc2c6cbf4
                           dedupClientId: 06ad407c-24b9-4d58-94b8-42b07f62b206
-                          firstName: 'First Name'
-                          middleName: 'Middle Name'
-                          lastName: 'LAST NAME'
-                          nameSuffix: 'NS'
+                          firstName: First Name
+                          firstNameHashStatus: 1
+                          middleName: Middle Name
+                          middleNameHashStatus: 1
+                          lastName: LAST NAME
+                          lastNameHashStatus: 1
+                          nameSuffix: NS
                           nameDataQuality: 1
-                          ssn: '123-xx-xxxx'
+                          ssn: 123-45-6789
+                          ssnHashStatus: 1
                           ssnDataQuality: 1
                           dob: 1459517834983
                           dobDataQuality: 1
@@ -859,13 +967,16 @@ paths:
                           emailAddress: Jeanette@gmail.com
                         - clientId: bb1c4869-52af-4b4f-a9b6-a48f93c35294
                           dedupClientId: bfb14d1c-7bf8-4624-8b8c-62f54ca5d826
-                          firstName: 'First Name'
-                          middleName: 'Middle Name'
-                          lastName: 'LAST NAME'
-                          nameSuffix: 'NS'
+                          firstName: One Name
+                          firstNameHashStatus: 1
+                          middleName: Two Name
+                          middleNameHashStatus: 1
+                          lastName: Three NAME
+                          lastNameHashStatus: 1
+                          nameSuffix: NS
                           nameDataQuality: 1
-                          ssn: 'xxx-xx-xxxx'
-                          ssnDataQuality: 1
+                          ssn: xxx-xx-xxxx
+                          ssnHashStatus: 1
                           dob: 1459517834983
                           dobDataQuality: 1
                           race: 1
@@ -877,13 +988,18 @@ paths:
                           emailAddress: Jeanette@gmail.com
                         - clientId: 2e31aed0-eb42-484d-9b42-8395b65a9ac7
                           dedupClientId: 6a2ac456-844f-4d8d-837c-5175fcfbfef3
-                          firstName: 'First Name'
-                          middleName: 'Middle Name'
-                          lastName: 'LAST NAME'
-                          nameSuffix: 'NS'
+                          firstName: Good Name
+                          firstNameHashStatus: 1
+                          middleName: nice Name
+                          middleNameHashStatus: 1
+                          lastName: Fine NAME
+                          lastNameHashStatus: 1
+                          nameSuffix: NS
                           nameDataQuality: 1
-                          ssn: ' '
-                          ssnDataQuality: 1
+                          ssn: xxx-xx-2234
+                          ssnHashStatus: 1
+                          dob: 1459517834983
+                          dobDataQuality: 1
                           dob: 1459517834983
                           dobDataQuality: 1
                           race: 1
@@ -1732,8 +1848,8 @@ paths:
                     - links:
                       - rel: history
                         href: "/clients/8547a63e-4659-412f-b5fa-200e03b62ae8/enrollments/cc1da849-b877-4455-ab44-84bdb9991f97/history"
-                      - rel: hmisHouseHold   
-                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"                         
+                      - rel: hmisHouseHold
+                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"
                       enrollmentId: cc1da849-b877-4455-ab44-84bdb9991f97
                       disablingcondition: 0
                       entrydate: 1459517941736
@@ -1750,7 +1866,7 @@ paths:
                       dateCreated: 05-13-2016
                       chronicHomeless: 1
                       hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1 
+                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
               schema:
                 {
                   "type": "object",
@@ -1887,7 +2003,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                }                                 
+                                }
                             }
                           }
                         }
@@ -2002,7 +2118,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                }                           
+                                }
                         }
                       }
                     }
@@ -2026,7 +2142,7 @@ paths:
                     dateCreated: 05-13-2016
                     dateUpdated: 05-13-2016
                     hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                     
+                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
         '400':
           description: Bad Request – The request was invalid or cannot be served.
         '401':
@@ -2149,7 +2265,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                } 
+                                }
                       }
                     }
                   }
@@ -2177,7 +2293,7 @@ paths:
                     datetostreetessh: 1
                     chronicHomeless: 1
                     hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                     
+                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
         required: true
     parameters:
       - name: clientid
@@ -2298,7 +2414,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                }                           
+                                }
                         }
                       }
                     }
@@ -2308,8 +2424,8 @@ paths:
                       links:
                       - rel: history
                         href: "/clients/8547a63e-4659-412f-b5fa-200e03b62ae8/enrollments/cc1da849-b877-4455-ab44-84bdb9991f97/history"
-                      - rel: hmisHouseHold   
-                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"                                                 
+                      - rel: hmisHouseHold
+                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"
                       enrollmentId: cc1da849-b877-4455-ab44-84bdb9991f97
                       disablingcondition: 0
                       entrydate: 1459517941736
@@ -2327,7 +2443,7 @@ paths:
                       dateUpdated: 05-13-2016
                       chronicHomeless: 1
                       hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                       
+                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
         '400':
           description: Bad Request – The request was invalid or cannot be served.
         '401':
@@ -2469,7 +2585,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                } 
+                                }
                       }
                     }
                   }
@@ -2497,7 +2613,7 @@ paths:
                     datetostreetessh: 1
                     chronicHomeless: 1
                     hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                     
+                    genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
         required: true
     delete:
       responses:
@@ -2549,8 +2665,8 @@ paths:
                     sort: {}
                   enrollments:
                     - links:
-                      - rel: hmisHouseHold   
-                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"               
+                      - rel: hmisHouseHold
+                        href: "/hmis-clientapi/rest/v2014/hmishouseholds/8e956388-b909-41ea-b1d0-203e9cc15c45/"
                       enrollmentId: cc1da849-b877-4455-ab44-84bdb9991f97
                       disablingcondition: 0
                       entrydate: 1459517941736
@@ -2567,7 +2683,7 @@ paths:
                       dateCreated: 05-13-2016
                       chronicHomeless: 1
                       hmisHouseholdId: 8e956388-b909-41ea-b1d0-203e9cc15c45
-                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1                       
+                      genericHouseHoldId: 1520d4ac-2998-4825-80a6-2f550c37f3f1
               schema:
                 {
                   "type": "object",
@@ -2677,7 +2793,7 @@ paths:
                               },
                               "chronicHomeless": {
                                 "type": "integer"
-                              }                              
+                              }
                             },
                                 "hmisHouseholdId": {
                                   "type": "string",
@@ -2686,7 +2802,7 @@ paths:
                                 "genericHouseHoldId":{
                                   "type": "string",
                                   "format": "uuid",
-                                } 
+                                }
                           }
                         }
                       }
@@ -24348,7 +24464,7 @@ paths:
                           "houseHoldMembers": {
                             "type": "array",
                             "items":{
-                              
+
                             }
                           }
                         }
@@ -24526,7 +24642,7 @@ paths:
                                 "houseHoldMembers": {
                                   "type": "array",
                                   "items":{
-                                    
+
                                   }
                                 }
                               }
